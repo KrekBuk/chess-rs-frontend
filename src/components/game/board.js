@@ -22,7 +22,7 @@ const onClick = (selectedPiece, select, makeMove, file, rank) => {
         return;
     }
 
-    makeMove(selectedPiece.position, clicked);
+    makeMove(selectedPiece.position + clicked);
 }
 
 let Board = ({pieces, highlighted, reversed, selected, select, makeMove}) => {
@@ -55,8 +55,8 @@ const mapDispatchToProps = dispatch => {
         select: (file, rank) => {
             dispatch(selectPiece(file + rank))
         },
-        makeMove: (from, to) => {
-            dispatch(makeMove(from, to))
+        makeMove: (move) => {
+            dispatch(makeMove(move))
         }
     };
 };
